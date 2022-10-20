@@ -41,7 +41,7 @@ If you use the [mkdocs-material](https://github.com/squidfunk/mkdocs-material) t
   {% if git_page_authors %}
     <div class="md-source-date">
       <small>
-          Authors: {{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}
+          Authors: {{ git_page_authors | default('enable mkdocs-git-timeline-plugin') }}
       </small>
     </div>
   {% endif %}
@@ -77,7 +77,7 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/content.html -
 {{ page.content }}
 
 {% if git_page_authors %}
-  <p><small>Authors: {{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}</small></p>
+  <p><small>Authors: {{ git_page_authors | default('enable mkdocs-git-timeline-plugin') }}</small></p>
 {% endif %}
 ```
 

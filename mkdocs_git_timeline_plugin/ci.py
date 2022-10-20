@@ -10,7 +10,7 @@ import os
 import logging
 
 from pathlib import Path
-from mkdocs_git_authors_plugin.git.command import GitCommand
+from mkdocs_git_timeline_plugin.git.command import GitCommand
 
 
 def raise_ci_warnings(path: str) -> None:

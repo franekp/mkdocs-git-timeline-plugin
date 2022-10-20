@@ -2,7 +2,7 @@
 
 Thanks for considering to contribute to this project! Some guidelines:
 
-- Read the [Roadmap / Vision](https://github.com/timvink/mkdocs-git-authors-plugin/issues/16)
+- Read the [Roadmap / Vision](https://github.com/timvink/mkdocs-git-timeline-plugin/issues/16)
 - Go through the issue list and if needed create a relevant issue to discuss the change design. On disagreements, maintainer(s) will have the final word.
 - You can expect a response from a maintainer within 7 days. If you haven’t heard anything by then, feel free to ping the thread.
 - This package tries to be as simple as possible for the user (hide any complexity from the user). Options are only added when there is clear value to the majority of users.
@@ -15,7 +15,7 @@ Make sure to install an editable version before running tests:
 ```python
 pip install -r tests/test_requirements.txt
 pip install -e .
-pytest --cov=mkdocs_git_authors_plugin --cov-report term-missing tests
+pytest --cov=mkdocs_git_timeline_plugin --cov-report term-missing tests
 ```
 
 If it makes sense, writing tests for your PRs is always appreciated and will help get them merged.
@@ -24,7 +24,7 @@ In addition, this project uses pyflakes for static code checking:
 
 ```python
 pip install pyflakes
-pyflakes tests/ mkdocs_git_authors_plugin/
+pyflakes tests/ mkdocs_git_timeline_plugin/
 ```
 
 ## Manual testing

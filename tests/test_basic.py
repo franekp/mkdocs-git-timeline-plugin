@@ -63,7 +63,7 @@ def build_docs_setup(mkdocs_path, output_path):
 def test_basic_working(tmp_path, mkdocs_file):
     """
     combination with mkdocs-macros-plugin lead to error.
-    See https://github.com/timvink/mkdocs-git-authors-plugin/issues/60    
+    See https://github.com/timvink/mkdocs-git-timeline-plugin/issues/60    
     """
     result = build_docs_setup("tests/basic_setup/mkdocs.yml", tmp_path)
     assert result.exit_code == 0, (

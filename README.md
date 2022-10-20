@@ -1,18 +1,18 @@
-[![Actions Status](https://github.com/timvink/mkdocs-git-authors-plugin/workflows/pytest/badge.svg)](https://github.com/timvink/mkdocs-git-authors-plugin/actions)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mkdocs-git-authors-plugin)
-![PyPI](https://img.shields.io/pypi/v/mkdocs-git-authors-plugin)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/mkdocs-git-authors-plugin)
-[![codecov](https://codecov.io/gh/timvink/mkdocs-git-authors-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/timvink/mkdocs-git-authors-plugin)
-![GitHub contributors](https://img.shields.io/github/contributors/timvink/mkdocs-git-authors-plugin)
-![PyPI - License](https://img.shields.io/pypi/l/mkdocs-git-authors-plugin)
+[![Actions Status](https://github.com/timvink/mkdocs-git-timeline-plugin/workflows/pytest/badge.svg)](https://github.com/timvink/mkdocs-git-timeline-plugin/actions)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mkdocs-git-timeline-plugin)
+![PyPI](https://img.shields.io/pypi/v/mkdocs-git-timeline-plugin)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/mkdocs-git-timeline-plugin)
+[![codecov](https://codecov.io/gh/timvink/mkdocs-git-timeline-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/timvink/mkdocs-git-timeline-plugin)
+![GitHub contributors](https://img.shields.io/github/contributors/timvink/mkdocs-git-timeline-plugin)
+![PyPI - License](https://img.shields.io/pypi/l/mkdocs-git-timeline-plugin)
 
-# mkdocs-git-authors-plugin
+# mkdocs-git-timeline-plugin
 
 Lightweight [MkDocs](https://www.mkdocs.org/) plugin to display git authors of a markdown page:
 
 > Authors: Jane Doe, John Doe
 
-See the [demo](https://timvink.github.io/mkdocs-git-authors-plugin/). The plugin only considers authors of the current lines in the page ('surviving code' using `git blame`).
+See the [demo](https://timvink.github.io/mkdocs-git-timeline-plugin/). The plugin only considers authors of the current lines in the page ('surviving code' using `git blame`).
 
 Other MkDocs plugins that use information from git:
 
@@ -24,7 +24,7 @@ Other MkDocs plugins that use information from git:
 Install the plugin using pip3:
 
 ```bash
-pip3 install mkdocs-git-authors-plugin
+pip3 install mkdocs-git-timeline-plugin
 ```
 
 Next, add the following lines to your `mkdocs.yml`:
@@ -37,7 +37,7 @@ plugins:
 
 > If you have no `plugins` entry in your config file yet, you'll likely also want to add the `search` plugin. MkDocs enables it by default if there is no `plugins` entry set.
 
-You can then use the `{{ git_page_authors }}` tag in your markdown document, or choose to customize your mkdocs theme (see [usage](https://timvink.github.io/mkdocs-git-authors-plugin/usage.html) page in the docs).
+You can then use the `{{ git_page_authors }}` tag in your markdown document, or choose to customize your mkdocs theme (see [usage](https://timvink.github.io/mkdocs-git-timeline-plugin/usage.html) page in the docs).
 
 ### Note when using build environments
 
@@ -53,8 +53,8 @@ This plugin needs access to the last commit that touched a specific file to be a
 
 ## Documentation
 
-See [timvink.github.io/mkdocs-git-authors-plugin](https://timvink.github.io/mkdocs-git-authors-plugin/)
+See [timvink.github.io/mkdocs-git-timeline-plugin](https://timvink.github.io/mkdocs-git-timeline-plugin/)
 
 ## Contributing
 
-Very much open to contributions! Please read [contributing guide](https://timvink.github.io/mkdocs-git-authors-plugin/contributing.html) before putting in any work.
+Very much open to contributions! Please read [contributing guide](https://timvink.github.io/mkdocs-git-timeline-plugin/contributing.html) before putting in any work.

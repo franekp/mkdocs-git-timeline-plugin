@@ -4,13 +4,13 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="mkdocs-git-authors-plugin",
+    name="mkdocs-git-timeline-plugin",
     version="0.6.4",
     description="Mkdocs plugin to display git authors of a page",
     long_description=long_description,
     long_description_content_type="text/markdown",
     keywords="mkdocs git contributors committers authors plugin",
-    url="https://github.com/timvink/mkdocs-git-authors-plugin",
+    url="https://github.com/timvink/mkdocs-git-timeline-plugin",
     author="Tim Vink",
     author_email="vinktim@gmail.com",
     license="MIT",
@@ -32,7 +32,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "mkdocs.plugins": [
-            "git-authors = mkdocs_git_authors_plugin.plugin:GitAuthorsPlugin"
+            "git-authors = mkdocs_git_timeline_plugin.plugin:GitAuthorsPlugin"
         ]
     },
 )

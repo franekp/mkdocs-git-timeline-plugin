@@ -20,8 +20,8 @@ import os
 import shutil
 import logging
 
-from mkdocs_git_authors_plugin import util
-from mkdocs_git_authors_plugin.git import repo
+from mkdocs_git_timeline_plugin import util
+from mkdocs_git_timeline_plugin.git import repo
 
 # GitPython
 import git as gitpython

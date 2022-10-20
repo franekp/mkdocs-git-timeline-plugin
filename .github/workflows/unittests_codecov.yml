@@ -27,12 +27,12 @@ jobs:
     - name: Static code checking with pyflakes
       run: |
         pip install pyflakes
-        pyflakes mkdocs_git_authors_plugin
+        pyflakes mkdocs_git_timeline_plugin
     - name: Generate coverage report
       run: |
         pip install -r tests/test_requirements.txt
         pip install -e .
-        pytest --cov=mkdocs_git_authors_plugin --cov-report=xml
+        pytest --cov=mkdocs_git_timeline_plugin --cov-report=xml
     - name: Upload coverage to Codecov
       if: "contains(env.USING_COVERAGE, matrix.python-version)"
       uses: codecov/codecov-action@v1

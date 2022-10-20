@@ -1,4 +1,4 @@
-from mkdocs_git_authors_plugin.git.command import GitCommandError
+from mkdocs_git_timeline_plugin.git.command import GitCommandError
 import re
 import logging
 from mkdocs.config import config_options
@@ -6,8 +6,8 @@ from mkdocs.plugins import BasePlugin
 
 from . import util
 from .git.repo import Repo
-from mkdocs_git_authors_plugin.ci import raise_ci_warnings
-from mkdocs_git_authors_plugin.exclude import exclude
+from mkdocs_git_timeline_plugin.ci import raise_ci_warnings
+from mkdocs_git_timeline_plugin.exclude import exclude
 
 logger = logging.getLogger("mkdocs.plugins")
 

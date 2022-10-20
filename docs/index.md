@@ -1,4 +1,4 @@
-# mkdocs-git-authors-plugin
+# mkdocs-git-timeline-plugin
 
 Lightweight MkDocs plugin to display git authors of a markdown page.
 
@@ -7,7 +7,7 @@ Lightweight MkDocs plugin to display git authors of a markdown page.
 Install the plugin using pip3:
 
 ```bash
-pip3 install mkdocs-git-authors-plugin
+pip3 install mkdocs-git-timeline-plugin
 ```
 
 Next, add the following lines to your `mkdocs.yml`:
