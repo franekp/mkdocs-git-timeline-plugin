@@ -32,7 +32,7 @@ def raise_ci_warnings(path: str) -> None:
         # Default is GIT_DEPTH of 50 for gitlab
         logging.warning(
             """
-                [git-authors] Running on a GitLab runner might lead to wrong
+                [git-timeline] Running on a GitLab runner might lead to wrong
                 Git revision dates due to a shallow git fetch depth.
 
                 Make sure to set GIT_DEPTH to 1000 in your .gitlab-ci.yml file
@@ -45,7 +45,7 @@ def raise_ci_warnings(path: str) -> None:
         # Default is fetch-depth of 1 for github actions
         logging.warning(
             """
-                [git-authors] Running on GitHub Actions might lead to wrong
+                [git-timeline] Running on GitHub Actions might lead to wrong
                 Git revision dates due to a shallow git fetch depth.
 
                 Try setting fetch-depth to 0 in your GitHub Action
@@ -58,7 +58,7 @@ def raise_ci_warnings(path: str) -> None:
         # Default is fetch-depth of 50 for bitbucket pipelines
         logging.warning(
             """
-                [git-authors] Running on bitbucket pipelines might lead to wrong
+                [git-timeline] Running on bitbucket pipelines might lead to wrong
                 Git revision dates due to a shallow git fetch depth.
 
                 Try setting "clone: depth" to "full" in your pipeline
@@ -72,7 +72,7 @@ def raise_ci_warnings(path: str) -> None:
     if int(os.getenv("Agent.Source.Git.ShallowFetchDepth", 10e99)) < n_commits:
         logging.warning(
             """
-                [git-authors] Running on Azure pipelines with limited
+                [git-timeline] Running on Azure pipelines with limited
                 fetch-depth might lead to wrong git revision dates due to a shallow git fetch depth.
 
                 Remove any Shallow Fetch settings

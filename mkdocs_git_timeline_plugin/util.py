@@ -60,7 +60,7 @@ def page_authors_summary(page, config: dict):
             "<a href='mailto:%s'>%s</a>%s" % (author.email(), author.name(), contrib)
         )
     authors_summary = ", ".join(authors_summary)
-    return "<span class='git-page-authors git-authors'>%s</span>" % authors_summary
+    return "<span class='git-page-authors git-timeline'>%s</span>" % authors_summary
 
 
 def site_authors_summary(authors, config: dict):
@@ -89,7 +89,7 @@ def site_authors_summary(authors, config: dict):
     show_line_count = config["show_line_count"]
 
     result = """
-<span class='git-authors'>
+<span class='git-timeline'>
     <ul>
         """
     for author in authors:

@@ -8,7 +8,7 @@ theme:
 
 plugins:
     - search
-    - git-authors:
+    - git-timeline:
         count_empty_lines: false
         show_contribution: true
         show_line_count: true

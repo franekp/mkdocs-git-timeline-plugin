@@ -1,4 +1,4 @@
-site_name: "git-authors Plugin"
+site_name: "git-timeline Plugin"
 site_description: "Plugin to add git info to MkDocs sites"
 repo_url: https://github.com/timvink/mkdocs-git-timeline-plugin
 site_url: https://timvink.github.io/mkdocs-git-timeline-plugin/
@@ -35,7 +35,7 @@ theme:
 # Plugins
 plugins:
   - search
-  - git-authors:
+  - git-timeline:
       show_contribution: true
       show_line_count: true
       count_empty_lines: true

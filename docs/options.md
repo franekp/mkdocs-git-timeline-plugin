@@ -4,7 +4,7 @@ You can customize the plugin by setting options in your `mkdocs.yml` file. Here 
 
 ```yaml
 plugins:
-    - git-authors:
+    - git-timeline:
         show_contribution: true
         show_line_count: true
         count_empty_lines: true
@@ -44,7 +44,7 @@ Default is empty. Specify a list of page source paths (one per line) that should
 ```yaml
 # mkdocs.yml
 plugins:
-  - git-authors:
+  - git-timeline:
       exclude:
         - index.md
         - subfolder/page.md
@@ -59,7 +59,7 @@ Default is `true`. Enables you to deactivate this plugin. A possible use case is
 ```yaml
 # mkdocs.yml
 plugins:
-  - git-authors:
+  - git-timeline:
       enabled: !ENV [ENABLED_GIT_AUTHORS, True]
 ```
 

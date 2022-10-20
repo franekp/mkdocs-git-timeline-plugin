@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setup(
     name="mkdocs-git-timeline-plugin",
-    version="0.6.4",
-    description="Mkdocs plugin to display git authors of a page",
+    version="0.0.1",
+    description="Mkdocs plugin to display git timeline of a page",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    keywords="mkdocs git contributors committers authors plugin",
+    keywords="mkdocs git timeline contributors committers authors plugin",
     url="https://github.com/timvink/mkdocs-git-timeline-plugin",
-    author="Tim Vink",
-    author_email="vinktim@gmail.com",
+    author="Tim Vink, Franciszek Piszcz",
+    author_email="vinktim@gmail.com, franek.piszcz@gmail.com",
     license="MIT",
     python_requires=">=3.6",
     classifiers=[
@@ -32,7 +32,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "mkdocs.plugins": [
-            "git-authors = mkdocs_git_timeline_plugin.plugin:GitAuthorsPlugin"
+            "git-timeline = mkdocs_git_timeline_plugin.plugin:GitTimelinePlugin"
         ]
     },
 )

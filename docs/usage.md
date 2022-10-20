@@ -28,7 +28,7 @@ Which renders as:
 
 ### mkdocs-material theme
 
-If you use the [mkdocs-material](https://github.com/squidfunk/mkdocs-material) theme you can implement git-authors by [overriding a template block](https://squidfunk.github.io/mkdocs-material/customization/#overriding-blocks):
+If you use the [mkdocs-material](https://github.com/squidfunk/mkdocs-material) theme you can implement git-timeline by [overriding a template block](https://squidfunk.github.io/mkdocs-material/customization/#overriding-blocks):
 
 1) Create a new file `main.html` in `docs/overrides`:
 
@@ -58,7 +58,7 @@ theme:
 
 ### mkdocs theme
 
-In the default MkDocs theme we can use overriding partials to add the git-authors info below the page content.
+In the default MkDocs theme we can use overriding partials to add the git-timeline info below the page content.
 
 1) Create a new file `content.html` in `docs/overrides`:
 

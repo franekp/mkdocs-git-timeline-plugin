@@ -11,7 +11,7 @@ from mkdocs_git_timeline_plugin.exclude import exclude
 
 logger = logging.getLogger("mkdocs.plugins")
 
-class GitAuthorsPlugin(BasePlugin):
+class GitTimelinePlugin(BasePlugin):
     config_scheme = (
         ("show_contribution", config_options.Type(bool, default=False)),
         ("show_line_count", config_options.Type(bool, default=False)),
@@ -58,7 +58,7 @@ class GitAuthorsPlugin(BasePlugin):
             if self.config["fallback_to_empty"]:
                 self._fallback = True
                 logger.warning(
-                    "[git-authors-plugin] Unable to find a git directory and/or git is not installed."
+                    "[git-timeline-plugin] Unable to find a git directory and/or git is not installed."
                     " Option 'fallback_to_empty' set to 'true': Falling back to empty authors list"
                 )
             else:

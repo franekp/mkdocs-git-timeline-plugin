@@ -4,4 +4,4 @@ use_directory_urls: true
 plugins:
     - search
     - macros
-    - git-authors
+    - git-timeline

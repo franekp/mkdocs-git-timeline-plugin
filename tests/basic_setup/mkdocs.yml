@@ -3,4 +3,4 @@ use_directory_urls: true
 
 plugins:
     - search
-    - git-authors
+    - git-timeline

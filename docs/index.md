@@ -15,7 +15,7 @@ Next, add the following lines to your `mkdocs.yml`:
 ```yaml
 plugins:
   - search
-  - git-authors
+  - git-timeline
 ```
 
 > If you have no `plugins` entry in your config file yet, you'll likely also want to add the `search` plugin. MkDocs enables it by default if there is no `plugins` entry set.

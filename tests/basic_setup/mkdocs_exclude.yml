@@ -3,6 +3,6 @@ use_directory_urls: true
 
 plugins:
     - search
-    - git-authors:
+    - git-timeline:
         exclude:
             - page_with_tag.md

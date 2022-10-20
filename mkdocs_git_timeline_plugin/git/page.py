@@ -33,7 +33,7 @@ class Page(AbstractRepoObject):
             self._process_git_blame()
         except GitCommandError:
             logger.warning(
-                "[git-authors-plugin] %s has not been committed yet. Lines are not counted"
+                "[git-timeline-plugin] %s has not been committed yet. Lines are not counted"
                 % path
             )
 
