@@ -1,8 +1,11 @@
 from pathlib import Path
 import re
+from datetime import datetime, timedelta
+import json
 import logging
 from .repo import Repo, AbstractRepoObject
 from .command import GitCommand, GitCommandError
+from .timeknots import timeknots
 
 logger = logging.getLogger("mkdocs.plugins")
 
@@ -29,6 +32,7 @@ class Page(AbstractRepoObject):
         self._sorted = False
         self._total_lines = 0
         self._authors = []
+        self._commits = {}  # Dict[Commit Object -> number of lines in this page]
         try:
             self._process_git_blame()
         except GitCommandError:
@@ -64,6 +68,63 @@ class Page(AbstractRepoObject):
             self._authors = sorted(self._authors, key=repo._sort_key, reverse=reverse)
             self._sorted = True
         return self._authors
+
+    def get_timeline_2(self):
+        result = ['<ul>']
+        commits = sorted(self._commits.items(), key=lambda c: c[0]._datetime)
+        for c, lines in commits:
+            result.append(f'''
+                <li> <b>{c._datetime.strftime("%b %d, %Y")}</b> <br /> {c._author._name} &lt;{c._author._email}&gt; <br /> <i>{c._summary}</i> </li>
+            ''')
+        result.append('</ul>')
+        return ''.join(result)
+
+    def get_timeline(self):
+        commits = sorted(self._commits.items(), key=lambda c: c[0]._datetime)
+        total_lines = 0
+        for lines in self._commits.values():
+            total_lines += lines
+        result = [timeknots, '<div id="timeline"></div>']
+        start_time = datetime.now(commits[0][0]._datetime.tzinfo) - timedelta(days=4*365);
+        while start_time > commits[0][0]._datetime:
+            start_time -= timedelta(days=365)
+        start_year = start_time.strftime("%Y")
+        start_time = start_time.timestamp()
+
+        start = {"name": start_year, "value": start_time, "radius": 0.1}
+        end = {"name": datetime.now().strftime('%Y'), "value": datetime.now().timestamp(), "radius": 0.1}
+        knots_json = [start]
+        for c, lines in commits:
+            knots_json.append({
+                "name": f'''
+                    <strong style="font-weight: bold">{c._datetime.strftime("%b %d, %Y")}</strong>
+                    <i>({int(100.0 * lines / total_lines)}%)</i>
+                    <br />
+                    {c._author._name} &lt;{c._author._email}&gt;
+                    <br />
+                    <i>{c._summary}</i>
+                ''',
+                "value": c._datetime.timestamp(),
+                "radius": (lines / total_lines) * 19 + 6
+            })
+        knots_json.append(end)
+
+        px = (end["value"] - start["value"]) / 688.0
+        next_knot = end
+        for knot in list(reversed(knots_json))[1:]:
+            knot["value"] -= max(0, next_knot["radius"] * px + knot["radius"] * px + 5 * px - (next_knot["value"] - knot["value"]))
+            next_knot = knot
+        end["value"] += 20 * px
+
+        knots_json = json.dumps(knots_json)
+        knots_settings = {"dateDimension": False}
+        knots_settings = json.dumps(knots_settings)
+        result.append(f'''
+            <script type="text/javascript">
+            TimeKnots.draw("#timeline", {knots_json}, {knots_settings});
+            </script>
+        ''')
+        return ''.join(result)
 
     def _process_git_blame(self):
         """
@@ -167,6 +228,9 @@ class Page(AbstractRepoObject):
                     if author not in self._authors:
                         self._authors.append(author)
                     author.add_lines(self, commit)
+                    if commit not in self._commits:
+                        self._commits[commit] = 0
+                    self._commits[commit] += 1
                     self.add_total_lines()
                     self.repo().add_total_lines()
 

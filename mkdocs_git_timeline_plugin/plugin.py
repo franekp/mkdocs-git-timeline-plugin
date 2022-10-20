@@ -218,6 +218,8 @@ class GitTimelinePlugin(BasePlugin):
         context["git_page_authors"] = page_authors
         context["git_site_authors"] = site_authors
 
+        context["git_timeline"] = page_obj.get_timeline()
+
         return context
 
     def repo(self):
