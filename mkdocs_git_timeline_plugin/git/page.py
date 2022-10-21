@@ -108,7 +108,7 @@ class Page(AbstractRepoObject):
                     <i>{c._summary}</i>
                 ''',
                 "value": c._datetime.timestamp(),
-                "radius": (lines / total_lines) * 19 + 6
+                "radius": (lines / total_lines) * 18 + 6
             })
         knots_json.append(end)
 

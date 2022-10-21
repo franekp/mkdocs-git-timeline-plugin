@@ -34,7 +34,7 @@ header.md-header.md-header--shadow {
 var TimeKnots = {
   draw: function(id, events, options){
     var cfg = {
-      width: 688,
+      width: null,
       height: 50,
       radius: 10,
       lineWidth: 1,
@@ -50,14 +50,16 @@ var TimeKnots = {
       seriesColor: d3.scale.category20(),
       dateDimension: true
     };
-
-
     //default configuration overrid
     if(options != undefined){
       for(var i in options){
         cfg[i] = options[i];
       }
     }
+    if (cfg.width === null) {
+      cfg.width = document.getElementById(id).getBoundingClientRect().width;
+    }
+
     if(cfg.addNow != false){
       events.push({date: new Date(), name: cfg.addNowLabel || "Today"});
     }
