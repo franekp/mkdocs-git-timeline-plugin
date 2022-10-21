@@ -57,7 +57,7 @@ var TimeKnots = {
       }
     }
     if (cfg.width === null) {
-      cfg.width = document.getElementById(id).getBoundingClientRect().width;
+      cfg.width = document.querySelector(id).getBoundingClientRect().width;
     }
 
     if(cfg.addNow != false){
