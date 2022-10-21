@@ -86,7 +86,7 @@ class Page(AbstractRepoObject):
             total_lines += lines
         result = [timeknots, '<div id="timeline"></div>']
         if commits:
-            start_time = datetime.now(commits[0][0]._datetime.tzinfo) - timedelta(days=4*365)
+            start_time = datetime.now(commits[0][0]._datetime.tzinfo) - timedelta(days=3*365)
             while start_time > commits[0][0]._datetime:
                 start_time -= timedelta(days=365)
         else:
