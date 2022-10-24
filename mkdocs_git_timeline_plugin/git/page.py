@@ -86,12 +86,11 @@ class Page(AbstractRepoObject):
         for lines in self._commits.values():
             total_lines += lines
         result = [timeknots, '<div id="timeline"></div>']
-        if commits:
-            start_time = datetime.now(commits[0][0]._datetime.tzinfo) - timedelta(days=3*365)
-            while start_time > commits[0][0]._datetime:
-                start_time -= timedelta(days=365)
-        else:
-            start_time = datetime.now() - timedelta(days=4*365)
+        if not commits:
+            return ""
+        start_time = datetime.now(commits[0][0]._datetime.tzinfo) - timedelta(days=3*365)
+        while start_time > commits[0][0]._datetime:
+            start_time -= timedelta(days=365)
         start_year = start_time.strftime("%Y")
         start_time = start_time.timestamp()
 
