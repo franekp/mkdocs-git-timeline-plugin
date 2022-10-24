@@ -194,6 +194,12 @@ class Page(AbstractRepoObject):
 
         lines = cmd.stdout()
 
+        # in case of markdowns auto-generated from .py files, use the corresponding .py file
+        if len(lines) == 0 and self._path.with_suffix('.py').exists():
+            cmd = GitCommand("blame", ["--porcelain", str(self._path.with_suffix('.py'))])
+            cmd.run()
+            lines = cmd.stdout()
+
         # in case of empty, non-committed files, raise error
         if len(lines) == 0:
             raise GitCommandError
