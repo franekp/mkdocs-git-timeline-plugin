@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+import os
 from datetime import datetime, timedelta
 import json
 import logging
@@ -189,16 +190,12 @@ class Page(AbstractRepoObject):
 
         re_sha = re.compile(r"^\w{40}")
 
-        cmd = GitCommand("blame", ["--porcelain", str(self._path)])
-        cmd.run()
-
-        lines = cmd.stdout()
-
-        # in case of markdowns auto-generated from .py files, use the corresponding .py file
-        if len(lines) == 0 and self._path.with_suffix('.py').exists():
+        if is_generated_from_py_file(self._path):
             cmd = GitCommand("blame", ["--porcelain", str(self._path.with_suffix('.py'))])
-            cmd.run()
-            lines = cmd.stdout()
+        else:
+            cmd = GitCommand("blame", ["--porcelain", str(self._path)])
+        cmd.run()
+        lines = cmd.stdout()
 
         # in case of empty, non-committed files, raise error
         if len(lines) == 0:
@@ -264,3 +261,9 @@ class Page(AbstractRepoObject):
             int
         """
         return self._total_lines
+
+
+def is_generated_from_py_file(path):
+    is_untracked = os.system(f"git ls-files --error-unmatch '{path}' > /dev/null 2>&1") != 0
+    py_file = path.with_suffix('.py')
+    return is_untracked and py_file.exists()
